@@ -1,0 +1,5 @@
+package supportlist.model.vo;
+
+public class SupportList {
+
+}

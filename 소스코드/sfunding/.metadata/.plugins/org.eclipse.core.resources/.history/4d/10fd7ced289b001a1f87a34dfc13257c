@@ -1,0 +1,5 @@
+package requestboard.model.vo;
+
+public class RequestBoard {
+
+}
