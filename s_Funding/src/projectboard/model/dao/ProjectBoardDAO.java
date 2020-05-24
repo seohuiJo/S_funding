@@ -2,6 +2,8 @@ package projectboard.model.dao;
 
 import java.util.ArrayList;
 
+import projectboard.model.vo.ProjectBoard;
+
 public class ProjectBoardDAO {
 	
 	//프로젝트 게시글 작성
@@ -25,8 +27,14 @@ public class ProjectBoardDAO {
 	}
 	
 	// 추천 프로젝트 list로 가져와서 보기
-	public ArrayList<Project> recommendProject() {
+	public ArrayList<ProjectBoard> recommendProject() {
+		return null;
 	
+	}
+	
+	//page숫자 메기기
+	public ArrayList<ProjectBoard> selelctProjectList() {
+		return null;
 	}
 
 }
