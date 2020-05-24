@@ -2,7 +2,9 @@ package comment.model.dao;
 
 import java.util.ArrayList;
 
-import comment.service.Comment;
+
+import comment.model.vo.Comment;
+
 
 public class CommentDAO {
 	//댓글 생성
@@ -32,11 +34,17 @@ public class CommentDAO {
 		
 		// 댓글 리스트로 가져와서 보여줌
 		public ArrayList<Comment> selectCommentList() {
+			return null;
 			
 		}
 		
 		// 댓글 갯수 새기 (필요하면 쓰기)
 		public int getCommentCount() {
 			return 0;
+		}
+		
+		//page숫자 메기기
+		public ArrayList<Comment> selelctProjectList() {
+			return null;
 		}
 }
