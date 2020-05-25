@@ -12,94 +12,29 @@ import notice.model.vo.PageData;
 public class NoticeService {
 	/* dd */
 	
-	public int deleteNotice(int noticeNo) {
-		Connection conn=null;
-		int result=0;
-		try {
-			conn=factory.createConnection();
-			result=new NoticeDAO().deleteNotice(conn,noticeNo);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(result>0) {
-			factory.commit(conn);
-		}else {
-			factory.rollback(conn);
-			
-		}
-		return result;
-	}
-	public Notice noticeSelect(int noticeNo) {
-		Connection conn=null;
-		Notice notice=null;
-		ArrayList<NoticeComment> cmList=null;
-		try {
-			conn=factory.createConnection();
-			notice=new NoticeDAO().noticeSelect(conn,noticeNo);
-			cmList=new NoticeDAO().noticeComment(conn, noticeNo);
-			notice.setComments(cmList);
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public int deleteNotice() {
 		
-		return cmList;
 	}
+	public Notice noticeSelect() {
+		
+	}
+<<<<<<< HEAD
+	public PageData noticeSearchList() {
+=======
 	public CommentPageData noticeSearchList(int currentPage,String search) {
 		Connection conn =null;
 		int recordCountPerPage=10;
 		int naviCountPerPage=5;
 		CommentPageData pd= new CommentPageData();
+>>>>>>> 29a65614bee92ca0220ebfbff8affea36775474c
 		
-		try {
-			conn=factory.createConnection();
-			pd.setPageList(new NoticeDAO().noticeSearchList(conn,currentPage,recordCountPerPage,search));
-			pd.setPageNavi(new NoticeDAO().getSearchPageNavi(conn,currentPage,recordCountPerPage,naviCountPerPage,search));
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return pd;
 	}
 	
 	
-	public int insertNotice(String subject,String content,String userId) {
-		Connection conn=null;
-		int result=0;
-		try {
-			conn=factory.createConnection();
-			result= new NoticeDAO().insertNotice(conn,subject,content,userId);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(result>0) {
-			factory.commit(conn);
-		}else {
-			factory.rollback(conn);
-		}
-		return result;
+	public int insertNotice() {
+		
 	}
-	public int modifyNotice(String subject,String content,int noticeNo) {
-		Connection conn =null;
-		int result=0;
-		try {
-			conn=factory.createConnection();
-			result=new NoticeDAO().modifyNotice(conn,subject,content,noticeNo);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(result>0) {
-			factory.commit(conn);
-		}else {
-			factory.rollback(conn);
-		}
-		return result;
-	}
+	public int modifyNotice() {
+		
 
 }

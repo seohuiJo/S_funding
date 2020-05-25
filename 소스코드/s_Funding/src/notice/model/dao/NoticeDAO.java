@@ -10,6 +10,26 @@ import notice.model.vo.Notice;
 
 public class NoticeDAO {
 	
+<<<<<<< HEAD
+	public int deleteNotice(Connection conn) {
+		
+		
+	}
+	public Notice noticeSelect(Connection conn) {
+		
+		
+	}
+	public ArrayList<Notice> noticeSearchList(Connection conn) {
+		
+		
+	}
+	public int insertNotice(Connection conn) {
+		
+		
+	}
+	public int modifyNotice(Connection conn) {
+		
+=======
 	public int deleteNotice(Connection conn, int noticeNo) {
 		PreparedStatement pstmt = null;
 		int result = 0;
@@ -51,6 +71,7 @@ public class NoticeDAO {
 		
 		}
 		return result;
+>>>>>>> 29a65614bee92ca0220ebfbff8affea36775474c
 	}
 
 }

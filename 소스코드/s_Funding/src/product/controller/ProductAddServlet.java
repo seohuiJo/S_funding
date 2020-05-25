@@ -1,4 +1,4 @@
-package notice.controller;
+
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,20 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
-import notice.model.vo.PageData;
-
 /**
- * Servlet implementation class NoticeSearchServlet
+ * Servlet implementation class ProductAddServlet
  */
-@WebServlet("/NoticeSearchServlet")
-public class NoticeSearchServlet extends HttpServlet {
+@WebServlet("/productAdd")
+public class ProductAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeSearchServlet() {
+    public ProductAddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,11 +26,8 @@ public class NoticeSearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-<<<<<<< HEAD
-=======
-				
->>>>>>> 29a65614bee92ca0220ebfbff8affea36775474c
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

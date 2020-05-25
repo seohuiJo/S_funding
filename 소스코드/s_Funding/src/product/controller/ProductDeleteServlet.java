@@ -29,14 +29,7 @@ public class ProductDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new ProductService().deleteProduct(noticeNo);
-		if(result>0) {
-			response.sendRedirect("");
-			
-		}else {
-			response.sendRedirect("");
-		}
+		
 	}
 
 	/**
