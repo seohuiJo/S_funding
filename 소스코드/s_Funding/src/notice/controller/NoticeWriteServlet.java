@@ -29,19 +29,7 @@ public class NoticeWriteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String subject=request.getParameter("subject");
-		String content=request.getParameter("content");
-		HttpSession session=request.getSession();
-		if(session !=null && (session.getAttribute("member")!=null)) {
-			String userId=((Member)session.getAttribute("member")).getUserId();
-			int result=new NoticeService().insertNotice(subject,content,userId);
-			if(result>0) {
-				response.sendRedirect("/notice");
-			}else {
-				response.sendRedirect("/views/notice/noticeError.html");
-			}
-		}
+		
 	}
 
 	/**

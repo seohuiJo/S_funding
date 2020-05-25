@@ -29,17 +29,7 @@ public class NoticeModifyServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		//view에서 넘오온 값 변수 저장
-		String subject = request.getParameter("subject");
-		String content = request.getParameter("content");
-		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new NoticeService().modifyNotice(subject,content,noticeNo);
-		if(result>0) {//0보다 크면 수정 성공
-			response.sendRedirect("/noticeSelect?noticeNo="+noticeNo);
-		}else {
-			response.sendRedirect("views/notice/noticeError.html");
-		}
+		
 	}
 
 	/**

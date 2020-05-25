@@ -29,17 +29,7 @@ public class NoticeSelectServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		Notice notice=new NoticeService().noticeSelect(noticeNo);
-		if(notice !=null) {
-			RequestDispatcher view=request.getRequestDispatcher("");
-			request.setAttribute("content", notice);
-			view.forward(request, response);
-			
-		}else {
-			response.sendRedirect("");
-		}
+		
 	}
 
 	/**

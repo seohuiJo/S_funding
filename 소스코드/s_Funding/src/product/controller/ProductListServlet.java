@@ -34,14 +34,7 @@ public class ProductListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Product> list=new ProductService().selectMemberList();
-		if(!list.isEmpty()) {
-			RequestDispatcher view=request.getRequestDispatcher("/views/member/memberList.jsp");
-			request.setAttribute("list",list);
-			view.forward(request,response);
-		}else {
-			response.sendRedirect("");
-		}
+		
 	}
 
 	/**
