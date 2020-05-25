@@ -11,7 +11,7 @@ import member.model.vo.Member;
 
 public class MemberDAO {
 	
-	// ·Î±×ÀÎ =================================================================
+	// ï¿½Î±ï¿½ï¿½ï¿½ =================================================================
 	public Member selectList(Connection conn, String userId, String userPwd) {
 		return null;
 	}
@@ -19,28 +19,28 @@ public class MemberDAO {
 	
 	
 	
-	// È¸¿ø °¡ÀÔ ===============================================
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ===============================================
 	public int insertMember(Connection conn, Member member) {
 		return 0;
 	}
 	// ======================================================
 
 
-	// È¸¿ø »èÁ¦ ==============================================
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ==============================================
 	public int deleteMember(Connection conn, String userId) {
 		return 0;
 	}
 	// =========================================================
 
 
-	// È¸¿ø ¸ñ·Ï ===============================================
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ===============================================
 	public ArrayList<Member> selectMemberList(Connection conn) {
 		return null;
 	}
 	// ===========================================================
 
 
-	// È¸¿ø Á¤º¸ ¼öÁ¤ ============================================
+	// È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ============================================
 	public int updateMember(Connection conn, Member member) {
 		return 0;
 	}
@@ -48,7 +48,7 @@ public class MemberDAO {
 
 
 
-	// ³» Á¤º¸ ====================================================
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ====================================================
 	public Member selectOne(Connection conn, String userId) {
 		return null;
 	}
@@ -56,7 +56,7 @@ public class MemberDAO {
 
 
 
-	// º£½ºÆ®¸â¹ö =========================================================
+	// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ =========================================================
 	public ArrayList<Member> bestMemberList(Connection conn, String userId, String nickname) {
 		return null;
 	}
@@ -64,17 +64,17 @@ public class MemberDAO {
 
 
 
-	// Æ÷ÀÎÆ® ÃæÀü ================================================================
-	public Member chargePoint(Connection conn, int point, String userId) {
-		return null;
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ================================================================
+	public int chargePoint(Connection conn, int point, String userId) {
+		return 0;
 	}
 	// ==========================================================================
 
 
 
-	// Æ÷ÀÎÆ® »ç¿ë ==============================================================
-	public Member usePoint(Connection conn, int point, String userId) {
-		return null;
+	// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ==============================================================
+	public int usePoint(Connection conn, int point, String userId) {
+		return 0;
 	}
 	// ========================================================================
 
