@@ -30,22 +30,7 @@ public class NoticeSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-				request.setCharacterEncoding("utf-8");
 				
-				String search= request.getParameter("search");
-				int currentPage=0;
-				if(request.getParameter("currentPage")==null) {
-					currentPage=1;
-					
-				}else {
-					currentPage=Integer.parseInt(request.getParameter("currentPage"));
-				}
-				PageData pd=new NoticeService().noticeSearchList(currentPage,search);
-				RequestDispatcher view=request.getRequestDispatcher("");
-				request.setAttribute("pageData",pd );
-				request.setAttribute("search",search );
-				view.forward(request, response);
-			}
 	}
 
 	/**

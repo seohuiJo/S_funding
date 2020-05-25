@@ -28,13 +28,7 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new NoticeService().deleteNotice(noticeNo);
-		if(result>0) {
-			response.sendRedirect("/notice");
-		}else {
-				response.sendRedirect("");
-			}
+		
 	}
 
 	/**
