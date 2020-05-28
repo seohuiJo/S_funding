@@ -2,8 +2,6 @@ package supportlist.model.vo;
 
 import java.util.ArrayList;
 
-
-
 public class SupportListPageData {
 	private ArrayList<SupportList> pageList = null;
 	private String pageNavi = null;

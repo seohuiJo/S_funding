@@ -25,5 +25,4 @@ public class ProjectPageData {
 	public void setPageNavi(String pageNavi) {
 		this.pageNavi = pageNavi;
 	}
-
 }

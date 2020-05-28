@@ -7,8 +7,8 @@ public class RequestBoard {
 	private String userId;
 	private String requestTitle;
 	private String requestContent;
-	private int like;
-	private int dislike;
+	private int good;
+	private int bad;
 	private Date rRegdate;
 	private String projectList;
 	
@@ -46,20 +46,20 @@ public class RequestBoard {
 		this.requestContent = requestContent;
 	}
 
-	public int getLike() {
-		return like;
+	public int getGood() {
+		return good;
 	}
 
-	public void setLike(int like) {
-		this.like = like;
+	public void setGood(int good) {
+		this.good = good;
 	}
 
-	public int getDislike() {
-		return dislike;
+	public int getBad() {
+		return bad;
 	}
 
-	public void setDislike(int dislike) {
-		this.dislike = dislike;
+	public void setBad(int bad) {
+		this.bad = bad;
 	}
 
 	public Date getrRegdate() {

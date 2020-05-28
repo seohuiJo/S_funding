@@ -7,7 +7,7 @@ public class Member {
    private String userId;
    private String userPwd;
    private String userName;
-   private int phone;
+   private String phone;
    private String nickname;
    private String address;
    private String email;
@@ -18,7 +18,15 @@ public class Member {
    
    public Member() {}
 
-   public String getUserId() {
+   public String getPhone() {
+	return phone;
+}
+
+public void setPhone(String phone) {
+	this.phone = phone;
+}
+
+public String getUserId() {
       return userId;
    }
 
@@ -42,13 +50,7 @@ public class Member {
       this.userName = userName;
    }
 
-   public int getPhone() {
-      return phone;
-   }
-
-   public void setPhone(int phone) {
-      this.phone = phone;
-   }
+   
 
    public String getNickname() {
       return nickname;

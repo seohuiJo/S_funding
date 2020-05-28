@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class Notice {
    private int noticeNo;
+   private String managerId;
    private String managerName;
    private String noticeTitle;
    private String noticeContent;
@@ -15,9 +16,18 @@ public class Notice {
       return noticeNo;
    }
 
-   public void setNoticeNo(int noticeNo) {
-      this.noticeNo = noticeNo;
-   }
+
+	public void setNoticeNo(int noticeNo) {
+	      this.noticeNo = noticeNo;
+	   }
+	
+	public String getManagerId() {
+		return managerId;
+	}
+	
+	public void setManagerId(String managerId) {
+		this.managerId = managerId;
+	}
 
    public String getManagerName() {
       return managerName;
