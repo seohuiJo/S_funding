@@ -16,12 +16,12 @@ public class ProjectBoardDAO {
 	}
 	
 	//프로젝트 검색
-	public ProjectPageData searchProject(Connection connection, int currentPage, String search) {
+	public MemberPageData searchProject(Connection connection, int currentPage, String search) {
 		return 0;
 	}
 	
 	// 프로젝트 select
-	public ProjectPageData selectProject(Connection connection, int currentPage) {
+	public MemberPageData selectProject(Connection connection, int currentPage) {
 		return 0;
 	}
 	
