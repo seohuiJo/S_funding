@@ -3,98 +3,108 @@ package member.model.vo;
 import java.sql.Date;
 
 public class Member {
-	private String userId;
-	private String userPwd;
-	private String userName;
-	private String gender;
-	private int age;
-	private String email;
-	private String phone;
-	private String address;
-	private String hobby;
-	private Date enrollDate;
-	
-	public Member() {
-		
-	}
 
-	public String getUserId() {
-		return userId;
-	}
+   private String userId;
+   private String userPwd;
+   private String userName;
+   private int phone;
+   private String nickname;
+   private String address;
+   private String email;
+   private int point;
+   private int enabled;
+   private Date uRegdate;
+   private String interest;
+   
+   public Member() {}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+   public String getUserId() {
+      return userId;
+   }
 
-	public String getUserPwd() {
-		return userPwd;
-	}
+   public void setUserId(String userId) {
+      this.userId = userId;
+   }
 
-	public void setUserPwd(String userPwd) {
-		this.userPwd = userPwd;
-	}
+   public String getUserPwd() {
+      return userPwd;
+   }
 
-	public String getUserName() {
-		return userName;
-	}
+   public void setUserPwd(String userPwd) {
+      this.userPwd = userPwd;
+   }
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+   public String getUserName() {
+      return userName;
+   }
 
-	public String getGender() {
-		return gender;
-	}
+   public void setUserName(String userName) {
+      this.userName = userName;
+   }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+   public int getPhone() {
+      return phone;
+   }
 
-	public int getAge() {
-		return age;
-	}
+   public void setPhone(int phone) {
+      this.phone = phone;
+   }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+   public String getNickname() {
+      return nickname;
+   }
 
-	public String getEmail() {
-		return email;
-	}
+   public void setNickname(String nickname) {
+      this.nickname = nickname;
+   }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+   public String getAddress() {
+      return address;
+   }
 
-	public String getPhone() {
-		return phone;
-	}
+   public void setAddress(String address) {
+      this.address = address;
+   }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+   public String getEmail() {
+      return email;
+   }
 
-	public String getAddress() {
-		return address;
-	}
+   public void setEmail(String email) {
+      this.email = email;
+   }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+   public int getPoint() {
+      return point;
+   }
 
-	public String getHobby() {
-		return hobby;
-	}
+   public void setPoint(int point) {
+      this.point = point;
+   }
 
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
-	}
+   public int getEnabled() {
+      return enabled;
+   }
 
-	public Date getEnrollDate() {
-		return enrollDate;
-	}
+   public void setEnabled(int enabled) {
+      this.enabled = enabled;
+   }
 
-	public void setEnrollDate(Date enrollDate) {
-		this.enrollDate = enrollDate;
-	}
+   public Date getuRegdate() {
+      return uRegdate;
+   }
+
+   public void setuRegdate(Date uRegdate) {
+      this.uRegdate = uRegdate;
+   }
+
+   public String getInterest() {
+      return interest;
+   }
+
+   public void setInterest(String interest) {
+      this.interest = interest;
+   }
+   
+   
 }
