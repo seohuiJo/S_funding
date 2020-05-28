@@ -8,6 +8,10 @@
 <title>전체 회원 정보</title>
 </head>
 <body>
+
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 	<h1>관리자 : 회원관리 페이지</h1>
 	<table border="1">
 		<tr>

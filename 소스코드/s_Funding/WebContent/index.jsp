@@ -9,5 +9,6 @@
 </head>
 <body>
    <a href="/memberList">전체 회원 조회</a><br>
+   <a href="/views/member/enroll.html">회원가입</a> 
 </body>
 </html>

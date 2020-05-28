@@ -11,7 +11,7 @@ import member.model.vo.Member;
 
 public class MemberDAO {
 
-	// 전체 멤버 가져오기
+	
 	public ArrayList<Member> selectMemberList(Connection conn) {
 		ArrayList<Member> list = null;
 		Statement stmt = null;
@@ -45,6 +45,44 @@ public class MemberDAO {
 		}
 
 		return list;
+	}
+	
+	public int insertMember(Connection conn, Member member) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int result = 0;
+		String query ="insert into member values(?,?,?,?,?,?,?,50000,1,sysdate,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, member.getUserId());
+			pstmt.setString(2, member.getUserPwd());
+			pstmt.setString(3, member.getUserName());
+			pstmt.setString(4, member.getPhone());
+			pstmt.setString(5, member.getNickname());
+			pstmt.setString(6, member.getAddress());
+			pstmt.setString(7, member.getEmail());
+			/*pstmt.setInt(8, member.getPoint());
+			pstmt.setInt(9, member.getEnabled());*/
+			pstmt.setString(8, member.getInterest());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+	         try {
+	             pstmt.close();
+	          } catch (SQLException e) {
+	             // TODO Auto-generated catch block
+	             e.printStackTrace();
+	          }
+	       }return result;
+		
+		
+		
+		
+		
+		
 	}
 
 }

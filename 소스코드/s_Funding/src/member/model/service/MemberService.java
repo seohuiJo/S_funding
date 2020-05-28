@@ -29,5 +29,29 @@ public class MemberService {
 	      }
 	      return list;
 	   }
+	
+	public int insertMember(Member member) {
+		Connection conn = null;
+		
+		int result = 0;
+
+		try {
+			conn = factory.createConnection();
+			result = new MemberDAO().insertMember(conn, member);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if (result > 0) {
+			factory.commit(conn);
+
+		} else {
+			factory.rollback(conn);
+
+		}
+		return result;
+
+	}
 
 }
