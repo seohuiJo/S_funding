@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import projectboard.model.vo.ProjectBoard;
+import projectboard.model.vo.ProjectPageData;
+
 public class ProjectBoardDAO {
 	//프로젝트 게시글 작성
 	public int writeProject(Connection connection, String userId, String projectTitle, String projectContent, String category, Date startDate, Date endDate) {
@@ -16,12 +19,12 @@ public class ProjectBoardDAO {
 	}
 	
 	//프로젝트 검색
-	public MemberPageData searchProject(Connection connection, int currentPage, String search) {
+	public ProjectPageData searchProject(Connection connection, int currentPage, String search) {
 		return 0;
 	}
 	
 	// 프로젝트 select
-	public MemberPageData selectProject(Connection connection, int currentPage) {
+	public ProjectPageData selectProject(Connection connection, int currentPage) {
 		return 0;
 	}
 	
