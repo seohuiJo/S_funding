@@ -30,6 +30,13 @@ public class NoticeSearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+				
+>>>>>>> 29a65614bee92ca0220ebfbff8affea36775474c
+>>>>>>> 68abd591b980428e768e162a92f858c5cde0f44a
 	}
 
 	/**

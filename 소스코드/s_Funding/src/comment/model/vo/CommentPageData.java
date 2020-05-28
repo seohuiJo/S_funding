@@ -1,20 +1,22 @@
-package projectboard.model.vo;
+package comment.model.vo;
 
 import java.util.ArrayList;
 
-public class ProjectPageData {
-	private ArrayList<ProjectBoard> pageList = null;
+
+
+public class CommentPageData {
+	private ArrayList<Comment> pageList = null;
 	private String pageNavi = null;
 	
-	public ProjectPageData() {
+	public CommentPageData() {
 		
 	}
 
-	public ArrayList<ProjectBoard> getPageList() {
+	public ArrayList<Comment> getPageList() {
 		return pageList;
 	}
 
-	public void setPageList(ArrayList<ProjectBoard> pageList) {
+	public void setPageList(ArrayList<Comment> pageList) {
 		this.pageList = pageList;
 	}
 
@@ -25,5 +27,7 @@ public class ProjectPageData {
 	public void setPageNavi(String pageNavi) {
 		this.pageNavi = pageNavi;
 	}
+	
+	
 
 }

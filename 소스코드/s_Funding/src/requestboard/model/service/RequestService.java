@@ -12,7 +12,6 @@ public class RequestService {
 	}
 	
 	public RequestPageData requestSelectList(int currentPage) {
-		
 	}
 	
 	public RequestPageData requestSearchList(int currentPage, String search) {
