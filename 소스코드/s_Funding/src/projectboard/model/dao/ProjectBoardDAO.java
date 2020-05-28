@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import projectboard.model.vo.ProjectBoard;
-import projectboard.model.vo.ProjectPageData;
-
 public class ProjectBoardDAO {
 	//프로젝트 게시글 작성
 	public int writeProject(Connection connection, String userId, String projectTitle, String projectContent, String category, Date startDate, Date endDate) {

@@ -10,6 +10,7 @@ public class MessageService {
 	}
 	
 	public int notifyMessage(String userId, String nickname, String messageContent) {
+		return 0;
 		
 	}
 }

@@ -32,16 +32,15 @@ public class MemberListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1,2 생략하고 3.비즈니스 로직을 처리할 서비스 클래스 메소드 값을 전달 및 결과 받기
 		ArrayList<Member> list = new MemberService().selectMemberList();
-		
-		if(!list.isEmpty()) {
-			RequestDispatcher view= request.getRequestDispatcher("/views/member/memberList.jsp");
-			request.setAttribute("list", list);
-			view.forward(request, response);
-		}else {
-			response.sendRedirect("/views/member/memberError.html");
-		}
+	      
+	      if(!list.isEmpty()) {
+	         RequestDispatcher view= request.getRequestDispatcher("/views/member/memberList.jsp");
+	         request.setAttribute("list", list);
+	         view.forward(request, response);
+	      }else {
+	    	  System.out.println("메롱");
+	      }
 	}
 
 	/**
