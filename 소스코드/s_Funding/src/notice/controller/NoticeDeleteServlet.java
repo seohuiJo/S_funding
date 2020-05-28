@@ -12,7 +12,7 @@ import notice.model.service.NoticeService;
 /**
  * Servlet implementation class NoticeDeleteServlet
  */
-@WebServlet("/NoticeDeleteServlet")
+@WebServlet("/noticeDelete")
 public class NoticeDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,7 +28,14 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
+		int result=new NoticeService().deleteNotice(noticeNo);
 		
+		if(result>0) {
+			response.sendRedirect("/notice");
+		}else {
+			response.sendRedirect("/views/notice/noticeError.html");
+		}
 	}
 
 	/**

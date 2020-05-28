@@ -1,43 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@page import="member.model.vo.Member, java.util.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
 %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전체 회원 정보</title>
 </head>
 <body>
-   <h1>관리자 : 회원관리 페이지</h1>
-   <table border="1">
-      <tr>
-         <th>아이디</th>
-         <th>이름</th>
-         <th>나이</th>
-         <th>이메일</th>
-         <th>휴대폰</th>
-         <th>주소</th>
-         <th>성별</th>
-         <th>취미</th>
-         <th>가입날짜</th>
-      </tr>
-      <% for(Member mOne : list){ %>
+	<h1>관리자 : 회원관리 페이지</h1>
+	<table border="1">
+		<tr>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>나이</th>
+			<th>이메일</th>
+			<th>휴대폰</th>
+			<th>주소</th>
+			<th>성별</th>
+			<th>취미</th>
+			<th>가입날짜</th>
+		</tr>
+		<% for(Member mOne : list){ %>
 		<tr>
 			<td><%=mOne.getUserId() %></td>
+			<td><%=mOne.getUserName() %></td>
+			<td><%=mOne.getAge() %></td>
+			<td><%=mOne.getEmail() %></td>
+			<td><%=mOne.getPhone() %></td>
+			<td><%=mOne.getAddress() %></td>
+			<% String gender = mOne.getGender(); 
+			if(gender.equals("M")) {
+				gender = "남자";
+			}else {
+				gender = "여자";
+			}
+			%>
+			<td>
+			<%= gender %>
+			
+			</td>
+			<td><%=mOne.getHobby() %></td>
+			<td><%=mOne.getEnrollDate() %></td>
 		</tr>
 		<% } %>
-   </table>
+	</table>
+	<a href="/index.jsp">메인페이지로 이동</a>
 
 </body>
 </html>
-
-
-
-
-
-
-
-

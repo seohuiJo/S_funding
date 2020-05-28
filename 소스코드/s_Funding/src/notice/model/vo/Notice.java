@@ -1,56 +1,53 @@
 package notice.model.vo;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Notice {
-   private int noticeNo;
-   private String managerName;
-   private String noticeTitle;
-   private String noticeContent;
-   private Date nRegdate;
-   
-   public Notice() {}
+	private int noticeNo;
+	private String subject;
+	private String contents;
+	private String userId;
+	private Date regdate;
+	private ArrayList<NoticeComment> comments=null;
+	// 댓글
+	
+	public int getNoticeNo() {
+		return noticeNo;
+	}
+	public void setNoticeNo(int noticeNo) {
+		this.noticeNo = noticeNo;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+	public ArrayList<NoticeComment> getComments() {
+		return comments;
+	}
+	public void setComments(ArrayList<NoticeComment> comments) {
+		this.comments = comments;
+	}
 
-   public int getNoticeNo() {
-      return noticeNo;
-   }
-
-   public void setNoticeNo(int noticeNo) {
-      this.noticeNo = noticeNo;
-   }
-
-   public String getManagerName() {
-      return managerName;
-   }
-
-   public void setManagerName(String managerName) {
-      this.managerName = managerName;
-   }
-
-   public String getNoticeTitle() {
-      return noticeTitle;
-   }
-
-   public void setNoticeTitle(String noticeTitle) {
-      this.noticeTitle = noticeTitle;
-   }
-
-   public String getNoticeContent() {
-      return noticeContent;
-   }
-
-   public void setNoticeContent(String noticeContent) {
-      this.noticeContent = noticeContent;
-   }
-
-   public Date getnRegdate() {
-      return nRegdate;
-   }
-
-   public void setnRegdate(Date nRegdate) {
-      this.nRegdate = nRegdate;
-   }
-   
-   
-
+	
 }

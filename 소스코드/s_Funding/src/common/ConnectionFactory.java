@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import sun.security.jca.GetInstance.Instance;
+
 public class ConnectionFactory {
 	public ConnectionFactory() {
 		try {
@@ -25,8 +27,8 @@ public class ConnectionFactory {
 	
 	public Connection createConnection() throws SQLException {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "sfunding";
-		String password = "sfunding";
+		String user = "student";
+		String password = "student";
 		return DriverManager.getConnection(url,user,password);
 		
 		
@@ -66,4 +68,8 @@ public class ConnectionFactory {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+
 }

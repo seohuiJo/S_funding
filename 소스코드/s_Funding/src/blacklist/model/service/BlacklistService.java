@@ -10,12 +10,10 @@ public class BlacklistService {
 	}
 	
 	public int insertBlacklist(String userId, String reason) {
-		return 0;
 		
 	}
 	
 	public int deleteBlacklist(String userId) {
-		return 0;
 		
 	}
 }

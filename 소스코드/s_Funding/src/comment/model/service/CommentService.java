@@ -3,9 +3,6 @@ package comment.model.service;
 import common.ConnectionFactory;
 import java.util.ArrayList;
 
-import comment.model.vo.Comment;
-import comment.model.vo.CommentPageData;
-
 public class CommentService {
 	private ConnectionFactory factory;
 	
@@ -30,12 +27,12 @@ public class CommentService {
 	
 	// 댓글 검색
 	public CommentPageData searchComment(int currentPage, String search) {
-		return null;
+		return 0;
 	}
 	
 	// 댓글 한개 보여줌
 	public Comment selectComment(int commentNo) {
-		return null;
+		return 0;
 	}
 	
 	// 댓글 리스트로 가져와서 보여줌

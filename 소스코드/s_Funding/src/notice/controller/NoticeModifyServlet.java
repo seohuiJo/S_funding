@@ -1,6 +1,8 @@
 package notice.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +15,7 @@ import notice.model.vo.Notice;
 /**
  * Servlet implementation class NoticeModifyServlet
  */
-@WebServlet("/NoticeModifyServlet")
+@WebServlet("/noticeModify")
 public class NoticeModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,7 +31,13 @@ public class NoticeModifyServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
+		Notice notice= new NoticeService().noticeSelect(noticeNo);
+		if(notice!=null) {
+			RequestDispatcher view=request.getRequestDispatcher("/views/notice/noticeModify.jsp");
+			request.setAttribute("content", notice);
+			view.forward(request,  response);
+		}
 	}
 
 	/**
