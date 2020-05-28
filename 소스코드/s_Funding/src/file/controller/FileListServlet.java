@@ -1,25 +1,30 @@
-package notice.controller;
+package file.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import notice.model.service.NoticeService;
+import file.model.service.FileService;
+import file.model.vo.FileData;
+import member.model.vo.Member;
 
 /**
- * Servlet implementation class NoticeDeleteServlet
+ * Servlet implementation class FileListServlet
  */
-@WebServlet("/noticeDelete")
-public class NoticeDeleteServlet extends HttpServlet {
+@WebServlet("/fileList")
+public class FileListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDeleteServlet() {
+    public FileListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,13 +33,13 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new NoticeService().deleteNotice(noticeNo);
+		HttpSession session=request.getSession();
+		String userId=((Member)session.getAttribute("member")).getUserId();
+		ArrayList<FileData> list=new FileService().selectFileList(userId);
 		
-		if(result>0) {
-			response.sendRedirect("/notice");
-		}else {
-			response.sendRedirect("/views/notice/noticeError.html");
+		if(!list.isEmpty()) {
+			request.setAttribute("fileList",list);
+			request.getRequestDispatcher("/views/file/fileList.jsp").forward(request, response);
 		}
 	}
 
@@ -47,3 +52,17 @@ public class NoticeDeleteServlet extends HttpServlet {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import notice.model.service.NoticeService;
 
 /**
- * Servlet implementation class NoticeDeleteServlet
+ * Servlet implementation class NoticeCommentDeleteServlet
  */
-@WebServlet("/noticeDelete")
-public class NoticeDeleteServlet extends HttpServlet {
+@WebServlet("/noticeCommentDelete")
+public class NoticeCommentDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDeleteServlet() {
+    public NoticeCommentDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,12 +29,13 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new NoticeService().deleteNotice(noticeNo);
+		int commentNo=Integer.parseInt(request.getParameter("commentNo"));
+		int result=new NoticeService().deleteNoticeComment(commentNo);
 		
 		if(result>0) {
-			response.sendRedirect("/notice");
+			response.sendRedirect("/noticeSelect?noticeNo="+noticeNo);
 		}else {
-			response.sendRedirect("/views/notice/noticeError.html");
+			response.sendRedirect("/vies/notice/noticeError.html");
 		}
 	}
 

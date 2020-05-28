@@ -1,4 +1,4 @@
-package notice.controller;
+package photo.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
-
 /**
- * Servlet implementation class NoticeDeleteServlet
+ * Servlet implementation class PhotoWriteFormServlet
  */
-@WebServlet("/noticeDelete")
-public class NoticeDeleteServlet extends HttpServlet {
+@WebServlet("/photoWriteForm")
+public class PhotoWriteFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDeleteServlet() {
+    public PhotoWriteFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +26,7 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new NoticeService().deleteNotice(noticeNo);
-		
-		if(result>0) {
-			response.sendRedirect("/notice");
-		}else {
-			response.sendRedirect("/views/notice/noticeError.html");
-		}
+		request.getRequestDispatcher("/WEB-INF/views/photo/photoWrite.jsp").forward(request, response);
 	}
 
 	/**

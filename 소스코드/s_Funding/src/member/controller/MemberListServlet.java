@@ -1,25 +1,29 @@
-package notice.controller;
+package member.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
+import member.model.service.MemberService;
+import member.model.vo.Member;
 
 /**
- * Servlet implementation class NoticeDeleteServlet
+ * Servlet implementation class MemberListServlet
  */
-@WebServlet("/noticeDelete")
-public class NoticeDeleteServlet extends HttpServlet {
+@WebServlet("/memberList")
+public class MemberListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDeleteServlet() {
+    public MemberListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,13 +32,15 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new NoticeService().deleteNotice(noticeNo);
+		// 1,2 생략하고 3.비즈니스 로직을 처리할 서비스 클래스 메소드 값을 전달 및 결과 받기
+		ArrayList<Member> list = new MemberService().selectMemberList();
 		
-		if(result>0) {
-			response.sendRedirect("/notice");
+		if(!list.isEmpty()) {
+			RequestDispatcher view= request.getRequestDispatcher("/views/member/memberList.jsp");
+			request.setAttribute("list", list);
+			view.forward(request, response);
 		}else {
-			response.sendRedirect("/views/notice/noticeError.html");
+			response.sendRedirect("/views/member/memberError.html");
 		}
 	}
 

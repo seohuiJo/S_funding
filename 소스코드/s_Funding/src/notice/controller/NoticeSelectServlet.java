@@ -1,6 +1,8 @@
 package notice.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,18 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
+import notice.model.vo.Notice;
 
 /**
- * Servlet implementation class NoticeDeleteServlet
+ * Servlet implementation class NoticeSelectServlet
  */
-@WebServlet("/noticeDelete")
-public class NoticeDeleteServlet extends HttpServlet {
+@WebServlet("/noticeSelect")
+public class NoticeSelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDeleteServlet() {
+    public NoticeSelectServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +31,16 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
 		int noticeNo=Integer.parseInt(request.getParameter("noticeNo"));
-		int result=new NoticeService().deleteNotice(noticeNo);
+		Notice notice=new NoticeService().noticeSelect(noticeNo);
 		
-		if(result>0) {
-			response.sendRedirect("/notice");
-		}else {
-			response.sendRedirect("/views/notice/noticeError.html");
+		if(notice!=null) {
+			RequestDispatcher view=request.getRequestDispatcher("/views/notice/noticeContent.jsp");
+			request.setAttribute("content", notice);
+			view.forward(request,  response);
 		}
+		
 	}
 
 	/**
