@@ -3,6 +3,8 @@ package serviceboard.model.service;
 
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -19,39 +21,46 @@ public class ServiceService {
 		factory = ConnectionFactory.getConnection();
 	}
 	
+	// Í≥†Í∞ùÏÑºÌÑ∞ Î™®Îëê Ï∂úÎ†•
+	public ServicePageData selectServiceList(int currentPage) {
+		// SELECT * FROM SERVICE;
+		Connection conn=null;
+		int recordCountPerPage=10;
+		int naviCountPerPage=5;
+		ServicePageData pd=new ServicePageData();
+		ArrayList<ServiceBoard> serviceList=null;
+		
+		try {
+			conn=factory.createConnection();
+			serviceList=new ServiceDAO().selectServiceList(conn, currentPage, recordCountPerPage);
+			pd.setPageList(serviceList);
+			pd.setPageNavi(new ServiceDAO().getPageNavi(conn, currentPage, recordCountPerPage, naviCountPerPage));
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return pd;		
+		
+	}
 	
-	// Service ±€æ≤±‚ =============================================================================
-	public int insertService(String serviceTitle, String serviceContent, String userId) {
-		return 0;
-	}
-	// ==============================================================================================
-
-
-	// Service ∏Ò∑œ ===================================================================
+	// ÌïòÎÇò ÏÑ†ÌÉùÌï¥ÏÑú Î≥¥Ïó¨Ï£ºÍ∏∞
 	public ServiceBoard serviceSelect(int serviceNo) {
-		return null;
+		Connection conn=null;
+		ServiceBoard service=null;
+		// ArrayList<NoticeComment> cmtList=null;
+		
+		try {
+			conn=factory.createConnection();
+			service=new ServiceDAO().serviceSelect(conn, serviceNo);
+			// cmtList=new NoticeDAO().noticeComment(conn, noticeNo);
+			// notice.setComments(cmtList);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return service;
 	}
-
-
-	// Service ∞Àªˆ ===============================================================================================================
-	public ServicePageData serviceSearchList(int currentPage, String search) {
-		return null;
-	}
-	// ==========================================================================================================================
-
-
-	// Service ºˆ¡§ =======================================================================
-	public int serviceModify(int serviceNo, String serviceTitle, String serviceContent) {
-		return 0;
-	}
-	// ================================================================================
-
-
-	// Service ªË¡¶ =================================================
-	public int deleteService(int serviceNo) {
-		return 0;
-	}
-	// ================================================================
 
 
 

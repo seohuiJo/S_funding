@@ -10,7 +10,6 @@ import notice.model.vo.Notice;
 
 public class NoticeDAO {
 	
-<<<<<<< HEAD
 	public int deleteNotice(Connection conn) {
 		
 		
@@ -69,9 +68,7 @@ public class NoticeDAO {
 		String query = "UPDATE NOTICE SET SUBJECT=?,CONTENTS=?," + "REGDATE=SYSDATE WHERE NOTICENO=?";
 
 		
-		}
-		return result;
->>>>>>> 29a65614bee92ca0220ebfbff8affea36775474c
+		
 	}
 
 }

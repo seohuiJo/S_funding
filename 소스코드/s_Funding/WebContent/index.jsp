@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <a href="/memberList">전체 회원 조회</a><br>
-   <a href="/views/member/enroll.html">회원가입</a> 
+	<a href="/service">고객센터</a> 
 </body>
 </html>
+
