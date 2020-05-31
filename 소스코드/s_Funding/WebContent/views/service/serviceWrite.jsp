@@ -1,14 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
+<html lang="en">
     <head>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-   
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>스펀딩 - 고객센터</title>
-    <link rel="icon" type="image/x-icon" href="/views/service/assets/img/favicon.ico" />
+    <title>템플릿</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -17,11 +18,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/views/service/css/styles.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
-   <!--  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 </head>
 
 <body id="page-top">
@@ -29,13 +25,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:black;">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <img src="assets/logo1.svg" alt=""/>스펀딩</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+                <img src="assets/logo1.svg" alt="" />스펀딩</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">프로젝트 보기</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">프로젝트 보기</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">프로젝트 하기</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">자유게시판</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">고객센터</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">요청게시판</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">건의사항</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">로그인</a></li>
                 </ul>
             </div>
@@ -48,7 +44,7 @@
             <!--메인 콘텐츠 위치-->
             <div class="row">
                 <!--아이콘 위치-->
-                <div class="col-1 col-md-1">
+                <div class="col-1">
                     <span class="h2">
                         <!--아이콘 코드 넣는곳-->
                         <svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -58,49 +54,46 @@
                     </span>
                 </div>
                 <!--제목 위치-->
-                <div class="col-11 col-md-9">
-                        <span class="h2">고객센터</span>
-                    </div>
-                    <!--글쓰기 버튼-->
-                    <div class="col-md-2 d-flex justify-content-end">
-	                    <form action="/serviceWriteForm" method="post">
-	                        <button type="submit" class="btn btn-primary">글쓰기</button>
-	                    </form>
-                    </div>
+                <div class="col-11">
+                    <span class="h2">고객센터 글 작성(사용자)</span>
+                </div>
+            </div>
             <hr>
             <br>
             <!--콘텐츠 페이지 내용 위치-->
             <div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">글번호</th>
-                            <th scope="col">제목</th>
-                            <th scope="col">회원아이디</th>
-                            <th scope="col">작성일</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-	                    <c:forEach items="${pageData.pageList }" var="service" varStatus="i">
-	                    	<tr>
-	                    		<th scope="row">${service.serviceNo}</th>
-	                    		<td><a href="/serviceSelect?serviceNo=${service.serviceNo}">${service.serviceCategory}</td>
-	                    		<td>${service.userId}</td>
-	                    		<td>${service.sRegdate }</td>
-	                    	</tr>
-	                    </c:forEach>
-                    </tbody>
-                </table>
+                <form action="/serviceWrite" method="post">
+                    <div class="select" width="200px">
+                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" style="width: 110px; height: 35px;" name="serviceCategory">
+                            <option>건의사항</option>
+                            <option>신고</option>
+                            <option>질문하기</option>
+				
+                        </select>
+                    </div><br>
+
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="15" name="serviceContent"></textarea>
+                    </div>
+                <div class="row">
+                    <div class="col-5">
+                    </div>
+                    <div class="col-5">
+                        <button type="submit" class="btn btn-primary">글 등록</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" class="btn btn-secondary">목록으로</a>
+                    </div>
+                    
+                   </form>
+
+
+                </div>
+
                 <br>
             </div>
-            
-            <br><br>
-            <!--  페이징 처리/페이지네이션 시작  -->
-            <nav aria-label="Page navigation example">
-               <ul class="pagination justify-content-center">
-               		${pageData.pageNavi }
-               </ul>
-            </nav>
+            <div>
+
+                <br>
+            </div>
         </div>
     </section>
 
@@ -125,8 +118,8 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Contact form JS-->
-    <!-- <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
     <script src="assets/mail/contact_me.js"></script>
-    Core theme JS
-    <script src="js/scripts.js"></script> -->
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body></html>

@@ -13,6 +13,8 @@ import notice.model.service.NoticeService;
 import notice.model.vo.Notice;
 import serviceboard.model.service.ServiceService;
 import serviceboard.model.vo.ServiceBoard;
+import serviceboard.model.vo.ServiceCommentPage;
+import serviceboard.model.vo.ServicePageData;
 
 /**
  * Servlet implementation class ServiceSelectServlet
@@ -37,9 +39,21 @@ public class ServiceSelectServlet extends HttpServlet {
 		int serviceNo=Integer.parseInt(request.getParameter("serviceNo"));
 		ServiceBoard service=new ServiceService().serviceSelect(serviceNo);
 		
+		
+		// 댓글 
+		int currentPage = 0;
+		// href="/notice?currentPage=1"
+		if (request.getParameter("currentPage") == null) {
+			currentPage = 1;
+		} else {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
 		if(service!=null) {
 			RequestDispatcher view=request.getRequestDispatcher("/views/service/serviceContent.jsp");
+			ServiceCommentPage pd=new ServiceService().selectCommentList(serviceNo, currentPage);
 			request.setAttribute("service", service);
+			request.setAttribute("commentPage", pd);
 			view.forward(request,  response);
 		}
 	}

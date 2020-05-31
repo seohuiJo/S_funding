@@ -1,6 +1,7 @@
 package serviceboard.model.vo;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class ServiceBoard {
 	private int serviceNo;
@@ -8,6 +9,7 @@ public class ServiceBoard {
 	private String serviceContent;
 	private String serviceCategory;
 	private Date sRegdate;
+	private ArrayList<ServiceComment> comments=null; 
 	
 	public ServiceBoard() {}
 	
@@ -41,4 +43,13 @@ public class ServiceBoard {
 	public void setsRegdate(Date sRegdate) {
 		this.sRegdate = sRegdate;
 	}
+
+	public ArrayList<ServiceComment> getCommentPage() {
+		return comments;
+	}
+
+	public void setCommentPage(ArrayList<ServiceComment> comments) {
+		this.comments = comments;
+	}
+	
 }

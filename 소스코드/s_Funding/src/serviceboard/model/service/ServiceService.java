@@ -1,7 +1,5 @@
 package serviceboard.model.service;
 
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +10,8 @@ import common.ConnectionFactory;
 import serviceboard.model.dao.ServiceDAO;
 import serviceboard.model.vo.ServiceBoard;
 import serviceboard.model.vo.ServicePageData;
+import serviceboard.model.vo.ServiceCommentPage;
+import serviceboard.model.vo.ServiceComment;
 
 public class ServiceService {
 
@@ -47,13 +47,10 @@ public class ServiceService {
 	public ServiceBoard serviceSelect(int serviceNo) {
 		Connection conn=null;
 		ServiceBoard service=null;
-		// ArrayList<NoticeComment> cmtList=null;
 		
 		try {
 			conn=factory.createConnection();
 			service=new ServiceDAO().serviceSelect(conn, serviceNo);
-			// cmtList=new NoticeDAO().noticeComment(conn, noticeNo);
-			// notice.setComments(cmtList);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,6 +58,103 @@ public class ServiceService {
 		
 		return service;
 	}
+	
+	// 검색 목록 불러오기
+	public ServicePageData serviceSearchList(int currentPage, String search) {
+		Connection conn = null;
+		int recordCountPerPage = 10;
+		int naviCountPerPage = 5;
+		ServicePageData pd = new ServicePageData();
+		
+		try {
+			conn=factory.createConnection();
+			pd.setPageList(new ServiceDAO().serviceSearchList(conn,currentPage,recordCountPerPage, search));
+			pd.setPageNavi(new ServiceDAO().getSearchPageNavi(conn, currentPage, recordCountPerPage, naviCountPerPage, search));
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pd;
+	}
+	
+	// 댓글 pd 가져오기
+	public ServiceCommentPage selectCommentList(int serviceNo, int currentPage) {
+		Connection conn=null;
+		int recordCountPerPage=10;
+		int naviCountPerPage=5;
+		ServiceCommentPage pd=new ServiceCommentPage();
+		ArrayList<ServiceComment> commentList=null;
+		
+		try {
+			conn=factory.createConnection();
+			commentList=new ServiceDAO().serviceCommentList(conn,serviceNo, currentPage, recordCountPerPage);
+			pd.setPageList(commentList);
+			pd.setPageNavi(new ServiceDAO().getPageNavi(conn, currentPage, recordCountPerPage, naviCountPerPage));
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return pd;	
+	}
+	
+	// 고객센터 글 작성
+	public int insertService(String serviceCategory, String serviceContent, String userId) {
+		Connection conn = null;
+		int result = 0;
+		
+		try {
+			conn = factory.createConnection();
+			result = new ServiceDAO().insertService(conn, serviceCategory, serviceContent, userId);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (result > 0) {
+			factory.commit(conn);
+		}else {
+			factory.rollback(conn);
+		}
+		return result;
+	}
+	
+	// 글 수정
+	public int serviceModify(int serviceNo, String serviceContent, String serviceCategory) {
+		Connection conn = null;
+		int result = 0;
+		
+		try {
+			conn = factory.createConnection();
+			result = new ServiceDAO().serviceModify(conn, serviceNo, serviceContent, serviceCategory);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (result > 0) {
+			factory.commit(conn);
+		}else {
+			factory.rollback(conn);
+		}
+		return result;
+	}
+	
+	// 글 삭제
+	public int deleteService(int serviceNo) {
+		Connection conn = null;
+		int result = 0;
+		try {
+			conn = factory.createConnection();
+			result = new ServiceDAO().deleteService(conn, serviceNo);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (result > 0) {
+			factory.commit(conn);
+		}else {
+			factory.rollback(conn);
+		}
+		return result;
+	}	
 
 
 

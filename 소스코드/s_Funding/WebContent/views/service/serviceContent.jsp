@@ -4,12 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>템플릿</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/views/service/assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -17,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+    <link href="/views/service/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -75,10 +76,10 @@
 
                         <div class="row">
                             <div class="col-10">
-                                <h4 class="card-title">${ service.serviceCategory}</h4>
+                                <h4 class="card-title">${service.serviceCategory}</h4>
                             </div>
                             <div class="col-2">
-                                <a href="#" class="btn btn-secondary">목록으로</a>
+                                <a href="/service" class="btn btn-secondary">목록으로</a>
                             </div>
 
 
@@ -91,8 +92,9 @@
                             <div class="col-9">
                             </div>
                             <div class="col-3">
-                                <a href="#" class="btn btn-secondary">글 수정</a>&nbsp;&nbsp;&nbsp;
-                                <a href="#" class="btn btn-primary">글 삭제</a>
+                                <a href="/serviceModifyForm?serviceNo=${service.serviceNo}&serviceContent=${serviceSelect.serviceContent}&serviceCategory=${serviceSelect.serviceCategory}" class="btn btn-secondary">글 수정</a>&nbsp;&nbsp;&nbsp;
+                                <a href="/serviceDelete?serviceNo=${service.serviceNo}" class="btn btn-primary" onclick="return question();">글 삭제</a>
+                                <!-- <input type="button" class="btn btn-primary" onclick="fnDelete(${serviceSelect.serviceNo});" value="글 삭제">-->
                             </div>
 
                         </div>
@@ -107,14 +109,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>관리자 댓글 작성 부분입니다.</td>
-                                    <td>관리자</td>
-                                    <td>20xx.xx.xx</td>
-                                </tr>
-
-
+                            	<c:forEach items="${commentPage.pageList}" var="comment" varStatus="i">
+                            		<tr>
+                                    	<th scope="row"></th>
+                                    	<td>${comment.content}</td>
+                                    	<td>${comment.userId}</td>
+                                    	<td>${comment.cRegdate}</td>
+                                	</tr>
+                            	</c:forEach>
                             </tbody>
                         </table>
                     </div>
@@ -136,6 +138,18 @@
 
         </div>
     </footer>
+    
+    
+    <script>
+      function question() {
+         var check = window.confirm("정말로 삭제 하시겠습니까?");
+         if(check) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+     </script>
 
 
     <!-- Bootstrap core JS-->

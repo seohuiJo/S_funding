@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import serviceboard.model.service.ServiceService;
-
 /**
- * Servlet implementation class ServiceDeleteServlet
+ * Servlet implementation class ServiceWriteForm
  */
-@WebServlet("/serviceDelete")
-public class ServiceDeleteServlet extends HttpServlet {
+@WebServlet("/serviceWriteForm")
+public class ServiceWriteFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServiceDeleteServlet() {
+    public ServiceWriteFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,15 +26,7 @@ public class ServiceDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("serviceNo"));
-		int serviceNo = Integer.parseInt(request.getParameter("serviceNo"));
-		int result = new ServiceService().deleteService(serviceNo);
-		
-		if(result > 0) {
-			response.sendRedirect("/service");
-		}else {
-			response.sendRedirect("/service");
-		}
+		request.getRequestDispatcher("/views/service/serviceWrite.jsp").forward(request, response);
 	}
 
 	/**
