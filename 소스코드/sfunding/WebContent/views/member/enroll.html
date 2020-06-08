@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<title>회원가입</title>
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+   rel="stylesheet" type="text/css" />
+<link
+   href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
+   rel="stylesheet" type="text/css" />
+<link
+   href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+   rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="/css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+
+ <script>
+   function idcheck2(){
+	   //e.stopPropagation();
+	   //e.preventDefault();
+	   var userId = document.getElementById("userId").value;
+	   	console.log(userId);
+	   if(userId.length<1 || userId==""){
+	    alert("중복체크할 아이디를 입력하십시오");
+	    return false;
+	   }else {
+		   var url = "idCheck.jsp?userId=" + userId;
+		   //var url = "idCheck.jsp?userId=" + userId;
+		   window.open(url, "get", "height = 180, width = 600"); 
+	   }
+	   
+	  }
+   </script>	
+
+   <!-- 상단바-->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav"
+		style="background-color: black;">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="/index.jsp">스펀딩</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu<i class="fas fa-bars ml-1"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/project">프로젝트 보기</a></li>
+						
+					<li class="nav-item">
+					<a class="nav-link js-scroll-trigger"
+						href="/views/projectboard/projectWrite.jsp" onclick="return check_login();">프로젝트 하기</a></li>
+						
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/RequestServlet">요청게시판</a></li>
+						
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/service">고객센터</a></li>
+						
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/NoticeServlet">공지사항</a></li>
+						
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="/login.jsp">로그인</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+   <br>
+   <br>
+   <!-- 메인 콘텐츠-->
+   <section class="page-section bg-light" id="portfolio">
+      <div class="container">
+         <!--메인 콘텐츠 위치-->
+         <div class="row">
+            <!--아이콘 위치-->
+            <div class="col-2">
+               <span class="h2"> <!--아이콘 코드 넣는곳--> <svg
+                     class="bi bi-pencil-square" width="1em" height="1em"
+                     viewBox="0 0 16 16" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                                <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                     <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg>
+               </span>
+            </div>
+            <!--제목 위치-->
+            <div class="col-10">
+               <span class="h2">회원가입</span>
+            </div>
+         </div>
+         <hr>
+         <br>
+         <!--콘텐츠 페이지 내용 위치-->
+         <div>
+            <form action="/signUp" method="post">
+               <table>
+                  <tr>
+                     <td>아이디</td>
+                     <td><input type="text" class="form-control" id="userId"
+                        name="userId" size="30" placeholder="아이디를 입력하세요"
+                        style="margin: 10px"></td>
+                        <td><input type="button" class="btn btn-primary"  style="margin: 10px; width: 10rem;"
+                         onclick="return idcheck2();" value="아이디 중복검사"></td>
+                  </tr>
+                  <tr>
+                     <td>비밀번호</td>
+                     <td><input type="password" class="form-control" id="userPwd"
+                        name="userPwd" size="30" placeholder="비밀번호를 입력하세요"
+                        style="margin: 10px"></td>
+                  </tr>
+                  <tr>
+                     <td>비밀번호 확인</td>
+                     <td><input type="password" class="form-control"
+                        id="userPwdRe" name="userPwdRe" size="30" placeholder="비밀번호 확인"
+                        style="margin: 10px"></td>
+                  </tr>
+                  <tr>
+                     <td>이름</td>
+                     <td><input type="text" class="form-control" id="userName"
+                        name="userName" size="30" placeholder="이름을 입력하세요"
+                        style="margin: 10px"></td>
+                  </tr>
+                  <tr>
+                     <td>닉네임</td>
+                     <td><input type="text" class="form-control" id="nickName"
+                        name="nickName" size="30" placeholder="닉네임을 입력하세요"
+                        style="margin: 10px"></td>
+                  </tr>
+
+                  <tr>
+                  <tr>
+                     <td>휴대전화</td>
+                     <td><input type="text" class="form-control" id="phone"
+                        name="phone" size="30" placeholder="휴대전화번호 입력하세요(-포함 입력)"
+                        style="margin: 10px"></td>
+                  </tr>
+
+                  <tr>
+                     <td>이메일</td>
+                     <td><input type="email" class="form-control" id="email"
+                        name="email" size="30" placeholder="이메일을 입력하세요"
+                        style="margin: 10px"></td>
+
+
+                  </tr>
+                  <tr>
+                     <td>주소</td>
+                     <td>
+                        <div class="form-row align-items-center">
+                           <div class="col-auto">
+                              <input type="text" id="sample6_postcode" name="address1" placeholder="우편번호"
+                                  class="form-control"
+                                 style="margin: 10px; width: 10rem;" >
+                           </div>
+                           <div class="col-auto">
+                              <input type="button" onclick="sample6_execDaumPostcode()" 
+                                 value="우편번호 찾기" class="btn btn-primary mb-2,form-control" >
+                           </div>
+                        </div> <input type="text" id="sample6_address" name="address2" placeholder="주소"
+                        style="margin: 10px" class="form-control"> <input
+                        type="text" id="sample6_detailAddress" name="address3" placeholder="상세주소"
+                        style="margin: 10px" class="form-control">
+                        <input type="text" id="sample6_extraAddress" name="address4" style="margin: 10px" class="form-control" placeholder="참고항목">
+                     </td>
+                  </tr>
+
+
+    
+                  <tr>
+                     <td>관심분야</td>
+                     <td>
+                        <div class="form-check form-check-inline">
+                           <input type="radio" class="form-check-input" name="interest"
+                              id="art" value="ART" size="30" value="M"> <label
+                              class="form-check-label" for="art"> ART </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input type="radio" class="form-check-input" name="interest"
+                              id="game" value="GAME" size="30" value="M"> <label
+                              class="form-check-label" for="game"> GAME </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input type="radio" class="form-check-input" name="interest"
+                              id="video" value="VIDEO" size="30" value="M"> <label
+                              class="form-check-label" for="video"> VIDEO </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input type="radio" class="form-check-input" name="interest"
+                              id="publishing" value="PUBLISHING" size="30" value="M">
+                           <label class="form-check-label" for="publishing">
+                              PUBLISHING </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                           <input type="radio" class="form-check-input" name="interest"
+                              id="other" value="OTHER" size="30" value="W"> <label
+                              class="form-check-label" for="other"> OTHER </label>
+
+                        </div>
+
+                     </td>
+                  </tr>
+
+                  <tr>
+                     <td colspan="2"><textarea class="form-control" rows="5"
+                           cols="55">가. 수집하는 개인정보의 항목첫째, 회사는 회원가 입, 원활한 고객상담, 각종 서비스의 제공을 위해 최초 회원가입 당시 아래와 같은 최소한의 개인정보를 필수항목으로 수집하고 있습니다.
+회원가입
+- 이름, 생년월일, 성별, 아이디, 비밀번호, 별명, 연락처(메일주소, 휴대폰 번호 중 선택), 가입인증정보
+만14세 미만 아동 회원가입
+- 이름, 생년월일, 성별, 법정대리인 정보, 아이디, 비밀번호, 연락처 (메일주소, 휴대폰 번호 중 선택), 가입인증정보
+단체아이디 회원가입
+- 단체아이디, 회사명, 대표자명, 대표 전화번호, 대표 이메일 주소, 단체주소, 관리자 아이디, 관리자 연락처, 관리자 부서/직위
+- 선택항목 : 대표 홈페이지, 대표 팩스번호
+둘째, 서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다.
+- IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록
+셋째, 네이버 아이디를 이용한 부가 서비스 및 맞춤식 서비스 이용 또는 이벤트 응모 과정에서 해당 서비스의 이용자에 한해서만 개인정보 추가 수집이 발생할 수 있으며, 이러한 경우 별도의 동의를 받습니다.
+넷째, 성인컨텐츠, 유료/게임 등 일부 서비스 이용시 관련 법률 준수를 위해 본인인증이 필요한 경우, 아래와 같은 정보들이 수집될 수 있습니다.
+- 이름, 생년월일, 성별, 중복가입확인정보(DI), 암호화된 동일인 식별정보(CI), 휴대폰 번호(선택), 아이핀 번호(아이핀 이용시), 내/외국인 정보
+다섯째, 유료 서비스 이용 과정에서 아래와 같은 결제 정보들이 수집될 수 있습니다.
+- 신용카드 결제시 : 카드사명, 카드번호 등
+- 휴대전화 결제시 : 이동전화번호, 통신사, 결제승인번호 등
+- 계좌이체시 : 은행명, 계좌번호 등
+- 상품권 이용시 : 상품권 번호
+나. 개인정보 수집방법회사는 다음과 같은 방법으로 개인정보를 수집합니다.
+- 홈페이지, 서면양식, 팩스, 전화, 상담 게시판, 이메일, 이벤트 응모, 배송요청
+- 협력회사로부터의 제공
+- 생성정보 수집 툴을 통한 수집
+   </textarea> <input type="checkbox" class="form-check-input" id="agree"
+                        name="agree"> <label class="form-check-label"
+                        for="agree"> 개인정보 수집 및 이용에 동의합니다. </label></td>
+
+                  </tr>
+
+                  <tr>
+
+                     <td>
+                        <button type="submit" class="btn btn-primary">가입하기</button>
+                     </td>
+                     <td>
+                        <button type="reset" class="btn btn-secondary">취소하기</button>
+                        <a href="/index.jsp" class="btn btn-primary">메인 페이지로</a>
+                     </td>
+                  </tr>
+
+               </table>
+            </form>
+            <br>
+         </div>
+      </div>
+   </section>
+   
+	<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+
+		// 로그인 했는지 확인
+		// 로그인 안했으면 프로젝트 하기 페이지 못감
+		function check_login(){
+			var checkLogin = '${sessionScope.member.userId}';
+			console.log(checkLogin);
+			if(checkLogin ==""){
+				alert("로그인 후에 이용가능한 서비스입니다.");
+				return false;
+			} else{
+				return true;
+			}
+		}
+	</script>
+
+   <!-- Footer-->
+   <footer>
+      <div class="text-center">
+         <ul class="nav list-group-horizontal justify-content-center">
+            <li class="nav-item"><a class="nav-link active" href="#"
+               style="color: black;">이용약관</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#"
+               style="color: black;">개인정보처리방침</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#"
+               style="color: black;">책임의 한계와 법적고지</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#"
+               style="color: black;">회원정보 고객센터</a></li>
+         </ul>
+         <span class="align-middle">스펀딩 Copyright 스펀딩 corp.All Rights
+            Reserved.</span>
+      </div>
+   </footer>
+
+
+   <!-- Bootstrap core JS-->
+   <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+   <!-- Third party plugin JS-->
+   <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+   <!-- Contact form JS-->
+   <script src="assets/mail/jqBootstrapValidation.js"></script>
+   <script src="assets/mail/contact_me.js"></script>
+   <!-- Core theme JS-->
+   <script src="js/scripts.js"></script>
+
+</body>
+</html>
